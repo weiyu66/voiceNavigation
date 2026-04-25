@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:orientation="vertical"
+        android:background="?attr/colorPrimary">
+
+        <TextView
+            android:id="@+id/tv_status"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/speech_hint"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:gravity="center"
+            android:layout_marginBottom="8dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp">
+
+            <EditText
+                android:id="@+id/et_destination"
+                android:layout_width="0dp"
+                android:layout_height="56dp"
+                android:layout_weight="1"
+                android:hint="@string/destination_hint"
+                android:paddingHorizontal="16dp"
+                android:background="@drawable/edit_text_background"
+                android:textColor="@color/black"
+                android:textColorHint="@color/gray"
+                android:textSize="16sp"/>
+
+            <Button
+                android:id="@+id/btn_voice_input"
+                android:layout_width="56dp"
+                android:layout_height="56dp"
+                android:background="@color/purple_500"
+                android:drawableTop="@drawable/ic_microphone"
+                android:contentDescription="@string/speech_hint"
+                android:layout_marginStart="16dp"/>
+
+            <Button
+                android:id="@+id/btn_start_navigation"
+                android:layout_width="wrap_content"
+                android:layout_height="56dp"
+                android:text="@string/start_navigation"
+                android:textColor="@color/white"
+                android:background="@color/teal_200"
+                android:textSize="14sp"
+                android:paddingHorizontal="24dp"
+                android:layout_marginStart="16dp"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <com.amap.api.maps.MapView
+        android:id="@+id/map"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
+
+</LinearLayout>

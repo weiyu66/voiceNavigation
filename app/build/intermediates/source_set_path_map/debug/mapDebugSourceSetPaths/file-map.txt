@@ -1,0 +1,37 @@
+com.example.voicenavigation.app-jetified-core-ktx-1.9.0-0 C:\Users\15PRO\.gradle\caches\8.10\transforms\18d310c4f30f57a26cb42f7a5f4b563e\transformed\jetified-core-ktx-1.9.0\res
+com.example.voicenavigation.app-room-runtime-2.6.1-1 C:\Users\15PRO\.gradle\caches\8.10\transforms\1c4331b82850a69ed6f04c10dd0e9f18\transformed\room-runtime-2.6.1\res
+com.example.voicenavigation.app-material-1.11.0-2 C:\Users\15PRO\.gradle\caches\8.10\transforms\1d0f2bf9e1db2cfa4be76e2b08078034\transformed\material-1.11.0\res
+com.example.voicenavigation.app-jetified-profileinstaller-1.3.0-3 C:\Users\15PRO\.gradle\caches\8.10\transforms\2d0a3aa3c75fdf47872390d1ab09bd45\transformed\jetified-profileinstaller-1.3.0\res
+com.example.voicenavigation.app-appcompat-1.6.1-4 C:\Users\15PRO\.gradle\caches\8.10\transforms\2f722b44401d781573f1ade9781c7a4b\transformed\appcompat-1.6.1\res
+com.example.voicenavigation.app-core-1.9.0-5 C:\Users\15PRO\.gradle\caches\8.10\transforms\30a05b5641aa13694ad571d634d9731c\transformed\core-1.9.0\res
+com.example.voicenavigation.app-drawerlayout-1.1.1-6 C:\Users\15PRO\.gradle\caches\8.10\transforms\3a12980809372d1f7c3380d2d5807f5a\transformed\drawerlayout-1.1.1\res
+com.example.voicenavigation.app-cardview-1.0.0-7 C:\Users\15PRO\.gradle\caches\8.10\transforms\3e0a165c31aee532627606a0f8d2323e\transformed\cardview-1.0.0\res
+com.example.voicenavigation.app-lifecycle-livedata-2.6.1-8 C:\Users\15PRO\.gradle\caches\8.10\transforms\40886e0b901d8cb27dae65c1c04026a8\transformed\lifecycle-livedata-2.6.1\res
+com.example.voicenavigation.app-jetified-activity-1.8.0-9 C:\Users\15PRO\.gradle\caches\8.10\transforms\47559feaa5f795cab51a4a2cb9604e93\transformed\jetified-activity-1.8.0\res
+com.example.voicenavigation.app-sqlite-framework-2.4.0-10 C:\Users\15PRO\.gradle\caches\8.10\transforms\58fc4aee572b5bc3c0ce673d2de1fece\transformed\sqlite-framework-2.4.0\res
+com.example.voicenavigation.app-jetified-viewpager2-1.0.0-11 C:\Users\15PRO\.gradle\caches\8.10\transforms\647fed81fa4209711c36b93613e1bebd\transformed\jetified-viewpager2-1.0.0\res
+com.example.voicenavigation.app-jetified-lifecycle-viewmodel-savedstate-2.6.1-12 C:\Users\15PRO\.gradle\caches\8.10\transforms\7f97c93c9c00721e5e669f677c9e409e\transformed\jetified-lifecycle-viewmodel-savedstate-2.6.1\res
+com.example.voicenavigation.app-jetified-emoji2-views-helper-1.2.0-13 C:\Users\15PRO\.gradle\caches\8.10\transforms\9299ddc8be9b47470ce3f6ae57b57415\transformed\jetified-emoji2-views-helper-1.2.0\res
+com.example.voicenavigation.app-coordinatorlayout-1.1.0-14 C:\Users\15PRO\.gradle\caches\8.10\transforms\a52241a68c38f824619ab4ec60596f1b\transformed\coordinatorlayout-1.1.0\res
+com.example.voicenavigation.app-jetified-lifecycle-process-2.6.1-15 C:\Users\15PRO\.gradle\caches\8.10\transforms\a5e35d5767662f507a5603a75d232902\transformed\jetified-lifecycle-process-2.6.1\res
+com.example.voicenavigation.app-fragment-1.3.6-16 C:\Users\15PRO\.gradle\caches\8.10\transforms\a61b96c5b2cd18ec2615da6d4f167171\transformed\fragment-1.3.6\res
+com.example.voicenavigation.app-constraintlayout-2.1.4-17 C:\Users\15PRO\.gradle\caches\8.10\transforms\b4458b0e558dd02e6b61cc29919eba56\transformed\constraintlayout-2.1.4\res
+com.example.voicenavigation.app-jetified-annotation-experimental-1.3.0-18 C:\Users\15PRO\.gradle\caches\8.10\transforms\bd1451e0b0b4e5fc2df9b1f3039f2d1e\transformed\jetified-annotation-experimental-1.3.0\res
+com.example.voicenavigation.app-lifecycle-livedata-core-2.6.1-19 C:\Users\15PRO\.gradle\caches\8.10\transforms\bf7f3405cac22825921eddf3387a268c\transformed\lifecycle-livedata-core-2.6.1\res
+com.example.voicenavigation.app-lifecycle-viewmodel-2.6.1-20 C:\Users\15PRO\.gradle\caches\8.10\transforms\c4524742963cc70385c4a604aa08da91\transformed\lifecycle-viewmodel-2.6.1\res
+com.example.voicenavigation.app-jetified-emoji2-1.2.0-21 C:\Users\15PRO\.gradle\caches\8.10\transforms\d3a93dd574464d00d6dc54ac028d1c8a\transformed\jetified-emoji2-1.2.0\res
+com.example.voicenavigation.app-core-runtime-2.2.0-22 C:\Users\15PRO\.gradle\caches\8.10\transforms\da2c2827a25371ad90fbb4a2a073acd4\transformed\core-runtime-2.2.0\res
+com.example.voicenavigation.app-sqlite-2.4.0-23 C:\Users\15PRO\.gradle\caches\8.10\transforms\e0953f497b1637dec39c891f4ce4c7dc\transformed\sqlite-2.4.0\res
+com.example.voicenavigation.app-jetified-appcompat-resources-1.6.1-24 C:\Users\15PRO\.gradle\caches\8.10\transforms\e4f97669de194bdbbd05969edb52bccb\transformed\jetified-appcompat-resources-1.6.1\res
+com.example.voicenavigation.app-jetified-startup-runtime-1.1.1-25 C:\Users\15PRO\.gradle\caches\8.10\transforms\e59b1d85d13ba4b13011e3d8fd536b48\transformed\jetified-startup-runtime-1.1.1\res
+com.example.voicenavigation.app-transition-1.2.0-26 C:\Users\15PRO\.gradle\caches\8.10\transforms\ef3f0d1e55e3a885c4f679e03beee28c\transformed\transition-1.2.0\res
+com.example.voicenavigation.app-lifecycle-runtime-2.6.1-27 C:\Users\15PRO\.gradle\caches\8.10\transforms\f412cdd447c044ae13d7830967fa93f0\transformed\lifecycle-runtime-2.6.1\res
+com.example.voicenavigation.app-jetified-savedstate-1.2.1-28 C:\Users\15PRO\.gradle\caches\8.10\transforms\fb7d2baa18262291f1be41b2f705268f\transformed\jetified-savedstate-1.2.1\res
+com.example.voicenavigation.app-recyclerview-1.1.0-29 C:\Users\15PRO\.gradle\caches\8.10\transforms\fc31e5816def4e18b5ac07773832bdde\transformed\recyclerview-1.1.0\res
+com.example.voicenavigation.app-pngs-30 D:\Program Files\Android\AndroidStudioProjects\V0\app\build\generated\res\pngs\debug
+com.example.voicenavigation.app-resValues-31 D:\Program Files\Android\AndroidStudioProjects\V0\app\build\generated\res\resValues\debug
+com.example.voicenavigation.app-packageDebugResources-32 D:\Program Files\Android\AndroidStudioProjects\V0\app\build\intermediates\incremental\debug\packageDebugResources\merged.dir
+com.example.voicenavigation.app-packageDebugResources-33 D:\Program Files\Android\AndroidStudioProjects\V0\app\build\intermediates\incremental\debug\packageDebugResources\stripped.dir
+com.example.voicenavigation.app-debug-34 D:\Program Files\Android\AndroidStudioProjects\V0\app\build\intermediates\merged_res\debug\mergeDebugResources
+com.example.voicenavigation.app-debug-35 D:\Program Files\Android\AndroidStudioProjects\V0\app\src\debug\res
+com.example.voicenavigation.app-main-36 D:\Program Files\Android\AndroidStudioProjects\V0\app\src\main\res
