@@ -1,0 +1,52 @@
+*.iml
+.gradle
+/local.properties
+/.idea
+.DS_Store
+/build
+/captures
+.externalNativeBuild
+.cxx
+local.properties
+/app/build
+/app/release
+*.apk
+*.aab
+*.jks
+*.keystore
+
+# Log file
+*.log
+
+# Android Studio Navigation editor temp files
+.navigation/
+
+# Android Studio captures folder
+captures/
+
+# IntelliJ
+*.iml
+.idea/workspace.xml
+.idea/tasks.xml
+.idea/gradle.xml
+.idea/assetWizardSettings.xml
+.idea/dictionaries
+.idea/libraries
+.idea/caches
+.idea/jarRepositories.xml
+.idea/modules.xml
+.idea/compiler.xml
+.idea/misc.xml
+.idea/.name
+.idea/navEditor.xml
+.idea/runConfigurations.xml
+
+# Keystore files
+*.jks
+*.keystore
+
+# Google Services (e.g. APIs or Firebase)
+google-services.json
+
+# Fabric Crashlytics plugin
+com_crashlytics_export_strings.xml
