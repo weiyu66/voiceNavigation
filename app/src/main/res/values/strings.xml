@@ -12,4 +12,10 @@
     <string name="permission_audio_denied">需要麦克风权限</string>
     <string name="permission_location_denied">需要定位权限</string>
     <string name="navigating_to">正在导航至</string>
+    <string name="preview_route">行前预览</string>
+    <string name="preview_no_destination">请先选择目的地</string>
+    <string name="preview_no_location">正在获取当前位置，请稍后</string>
+    <string name="preview_requesting">正在请求行前预览信息...</string>
+    <string name="preview_success">行前预览请求成功，请留意推送</string>
+    <string name="preview_failed">行前预览请求失败</string>
 </resources>

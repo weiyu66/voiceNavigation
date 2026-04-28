@@ -43,6 +43,7 @@ import com.example.voicenavigation.data.AppDatabase;
 import com.example.voicenavigation.data.VoiceRecord;
 import com.example.voicenavigation.data.VoiceRecordAdapter;
 import com.example.voicenavigation.navigation.NavigationManager;
+import com.example.voicenavigation.network.TripPreviewService;
 import com.example.voicenavigation.stt.BaiduSpeechManager;
 import com.example.voicenavigation.stt.BaiduTtsManager;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -67,6 +68,7 @@ public class MainActivity extends AppCompatActivity implements
     private Button btnVoiceInput;
     private Button btnSearch;
     private Button btnStartNavigation;
+    private Button btnPreviewRoute;
     private EditText etDestination;
     private TextView tvStatus;
 
@@ -93,6 +95,7 @@ public class MainActivity extends AppCompatActivity implements
     private RecyclerView rvHistory;
     private TextView tvHistoryEmpty;
     private VoiceRecordAdapter historyAdapter;
+    private TripPreviewService tripPreviewService;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -117,6 +120,7 @@ public class MainActivity extends AppCompatActivity implements
         btnVoiceInput = findViewById(R.id.btn_voice_input);
         btnSearch = findViewById(R.id.btn_search);
         btnStartNavigation = findViewById(R.id.btn_start_navigation);
+        btnPreviewRoute = findViewById(R.id.btn_preview_route);
         etDestination = findViewById(R.id.et_destination);
         tvStatus = findViewById(R.id.tv_status);
 
@@ -156,6 +160,7 @@ public class MainActivity extends AppCompatActivity implements
             }
         });
         btnStartNavigation.setOnClickListener(v -> toggleNavigation());
+        btnPreviewRoute.setOnClickListener(v -> sendTripPreview());
 
         etDestination.setOnEditorActionListener((v, actionId, event) -> {
             if (actionId == EditorInfo.IME_ACTION_SEARCH) {
@@ -226,6 +231,7 @@ public class MainActivity extends AppCompatActivity implements
         navigationManager.setNavigationCallback(this);
         appDatabase = AppDatabase.getInstance(this);
         handler = new Handler(Looper.getMainLooper());
+        tripPreviewService = new TripPreviewService();
         initTts();
     }
 
@@ -485,6 +491,45 @@ public class MainActivity extends AppCompatActivity implements
         navigationManager.planRoute(currentLocation, selectedDestLatLng, selectedDestName);
     }
 
+    /**
+     * 发送行前预览请求：将用户当前定位和目的地发送至后端。
+     */
+    private void sendTripPreview() {
+        if (selectedDestLatLng == null) {
+            Toast.makeText(this, R.string.preview_no_destination, Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        if (currentLocation == null) {
+            Toast.makeText(this, R.string.preview_no_location, Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        tvStatus.setText(R.string.preview_requesting);
+
+        tripPreviewService.sendPreviewRequest(
+                currentLocation.latitude,
+                currentLocation.longitude,
+                selectedDestLatLng.latitude,
+                selectedDestLatLng.longitude,
+                new TripPreviewService.PreviewCallback() {
+                    @Override
+                    public void onSuccess(String response) {
+                        tvStatus.setText(R.string.preview_success);
+                        Toast.makeText(MainActivity.this, R.string.preview_success, Toast.LENGTH_LONG).show();
+                        Log.d(TAG, "Trip preview response: " + response);
+                    }
+
+                    @Override
+                    public void onError(String error) {
+                        tvStatus.setText(R.string.preview_failed);
+                        Toast.makeText(MainActivity.this, R.string.preview_failed + ": " + error, Toast.LENGTH_LONG).show();
+                        Log.e(TAG, "Trip preview error: " + error);
+                    }
+                }
+        );
+    }
+
     private void drawRoute(List<LatLng> points) {
         if (mMap == null || points == null || points.isEmpty()) return;
 
@@ -735,6 +780,9 @@ public class MainActivity extends AppCompatActivity implements
         if (navigationManager != null) {
             navigationManager.stopNavigation();
             navigationManager.destroyLocationClient();
+        }
+        if (tripPreviewService != null) {
+            tripPreviewService.cancelAll();
         }
         if (mapView != null) {
             mapView.onDestroy();

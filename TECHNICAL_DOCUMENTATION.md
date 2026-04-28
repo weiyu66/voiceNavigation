@@ -54,6 +54,8 @@ app/
 │   │   │   └── VoiceRecordAdapter.java    # 历史列表适配器
 │   │   ├── navigation/
 │   │   │   └── NavigationManager.java     # 导航管理（定位+路线规划+偏航检测）
+│   │   ├── network/
+│   │   │   └── TripPreviewService.java    # 行前预览网络请求（OkHttp）
 │   │   └── stt/
 │   │       ├── BaiduSpeechManager.java    # 百度语音识别管理
 │   │       ├── BaiduTtsManager.java       # 百度语音合成（REST API）
@@ -92,6 +94,7 @@ app/
 │   BaiduSpeechManager  (语音识别)                      │
 │   BaiduTtsManager     (语音合成)                      │
 │   NavigationManager   (定位+路线规划+偏航检测)          │
+│   TripPreviewService  (行前预览网络请求)                │
 ├─────────────────────────────────────────────────────┤
 │                  数据层                               │
 │   AppDatabase → VoiceRecordDao → VoiceRecord         │
@@ -397,6 +400,7 @@ dependencies {
     implementation 'androidx.room:room-runtime:2.6.1'
     annotationProcessor 'androidx.room:room-compiler:2.6.1'
     implementation 'com.google.android.material:material:1.11.0' // 底部导航栏
+    implementation 'com.squareup.okhttp3:okhttp:4.12.0' // 行前预览网络请求
     implementation(name: 'bdasr', ext: 'aar')       // 百度语音SDK
 }
 ```
@@ -414,7 +418,48 @@ dependencies {
 
 ---
 
-## 6. 已知限制
+## 6. 行前预览模块（TripPreviewService）
+
+**文件：** [`TripPreviewService.java`](app/src/main/java/com/example/voicenavigation/network/TripPreviewService.java)
+
+**SDK：** OkHttp 4.12.0
+
+**工作流程：**
+
+```
+new TripPreviewService(baseUrl)
+  → sendPreviewRequest(originLat, originLng, destLat, destLng, callback)
+    → 构建 JSON 请求体 { origin: {latitude, longitude}, destination: {latitude, longitude} }
+    → POST {baseUrl}/api/trip/preview
+    → 异步回调（主线程）
+      ├─ onSuccess(String response)  : HTTP 200，返回后端 JSON
+      └─ onError(String error)       : 网络失败 / 服务器错误
+```
+
+**关键配置：**
+
+| 配置项 | 值 | 说明 |
+| :--- | :--- | :--- |
+| `CONNECT_TIMEOUT` | 15 秒 | 连接超时 |
+| `READ_TIMEOUT` | 15 秒 | 读取超时 |
+| `Content-Type` | `application/json` | 请求体格式 |
+
+**后端接口约定：**
+
+| 项目 | 内容 |
+| :--- | :--- |
+| 请求方法 | `POST` |
+| 请求路径 | `/api/trip/preview` |
+| 请求体 | JSON，包含 `origin` 和 `destination` 的经纬度 |
+| 成功响应 | HTTP 200，JSON 格式 `{ code, message, data }` |
+
+**调试标签：** `TripPreviewService`
+
+**相关文档：** [`docs/TRIP_PREVIEW_API.md`](docs/TRIP_PREVIEW_API.md)
+
+---
+
+## 7. 已知限制
 
 | 限制 | 说明 |
 | :--- | :--- |
@@ -424,10 +469,11 @@ dependencies {
 | 无导航语音提示音 | 播报前无"叮"提示音 |
 | 历史记录不可操作 | 仅可查看列表，不支持删除/清空 |
 | 定位受高德 API Key 绑定 | Key 需和高德平台注册的包名+SHA1匹配 |
+| 行前预览需后端服务 | 需要独立部署后端或配置第三方 API |
 
 ---
 
-## 7. 版本信息
+## 8. 版本信息
 
 | 项目信息 | 值 |
 | :--- | :--- |
@@ -441,7 +487,7 @@ dependencies {
 
 ---
 
-## 8. 调试指南
+## 9. 调试指南
 
 ### 8.1 Logcat 标签
 
@@ -451,6 +497,7 @@ dependencies {
 | `BaiduSpeechManager` | 语音识别 | STT 事件流、ASR 错误 |
 | `BaiduTtsManager` | 语音合成 | Token获取、合成结果 |
 | `NavigationManager` | 导航 | 定位、路线规划、偏航检测 |
+| `TripPreviewService` | 行前预览 | 网络请求、响应日志 |
 | `ASREngine` | 百度SDK | VAD/引擎内部日志 |
 
 ### 8.2 常见问题

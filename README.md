@@ -53,6 +53,7 @@
 | **百度语音 SDK (bdasr.aar)** | 语音识别 (STT) |
 | **百度语音合成 REST API** | 语音播报 (TTS) |
 | **Room 2.6.1** | 本地导航历史记录存储 |
+| **OkHttp 4.12.0** | 行前预览网络请求 |
 | **Material Components 1.11.0** | 底部导航栏 UI |
 | **AppCompat 1.6.1** | AndroidX 兼容支持 |
 | **ConstraintLayout 2.1.4** | 页面布局 |
@@ -80,6 +81,8 @@ app/
 │   │   │   └── VoiceRecordAdapter.java # 历史列表适配器
 │   │   ├── navigation/
 │   │   │   └── NavigationManager.java # 导航引擎（定位+规划+偏航检测）
+│   │   ├── network/
+│   │   │   └── TripPreviewService.java # 行前预览网络请求（OkHttp）
 │   │   └── stt/
 │   │       ├── BaiduSpeechManager.java       # 语音识别管理（百度 SDK）
 │   │       ├── BaiduTtsManager.java          # 语音合成（百度 REST API）

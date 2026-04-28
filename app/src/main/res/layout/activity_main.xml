@@ -89,6 +89,17 @@
                         android:paddingHorizontal="24dp"
                         android:layout_marginStart="8dp"/>
                 </LinearLayout>
+
+                <Button
+                    android:id="@+id/btn_preview_route"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:text="@string/preview_route"
+                    android:textColor="@color/white"
+                    android:background="@color/purple_500"
+                    android:textSize="14sp"
+                    android:layout_marginTop="8dp"
+                    android:paddingHorizontal="16dp"/>
             </LinearLayout>
 
             <com.amap.api.maps.MapView
