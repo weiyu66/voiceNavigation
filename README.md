@@ -54,6 +54,8 @@
 | **百度语音合成 REST API** | 语音播报 (TTS) |
 | **Room 2.6.1** | 本地导航历史记录存储 |
 | **Material Components 1.11.0** | 底部导航栏 UI |
+| **AppCompat 1.6.1** | AndroidX 兼容支持 |
+| **ConstraintLayout 2.1.4** | 页面布局 |
 | **AGP 8.7.2 + Gradle 8.10** | 构建系统 |
 | **minSdk 24 / targetSdk 34** | 支持 Android 7.0+ |
 
@@ -68,6 +70,7 @@ app/
 ├── src/main/
 │   ├── assets/
 │   │   └── asr_param.json             # 语音识别配置
+│   ├── kotlin/                        # Kotlin 目录（预留，当前为空）
 │   ├── java/com/example/voicenavigation/
 │   │   ├── MainActivity.java          # 主界面（协调所有模块）
 │   │   ├── data/
@@ -78,8 +81,10 @@ app/
 │   │   ├── navigation/
 │   │   │   └── NavigationManager.java # 导航引擎（定位+规划+偏航检测）
 │   │   └── stt/
-│   │       ├── BaiduSpeechManager.java # 语音识别管理
-│   │       └── BaiduTtsManager.java    # 语音合成（REST API）
+│   │       ├── BaiduSpeechManager.java       # 语音识别管理（百度 SDK）
+│   │       ├── BaiduTtsManager.java          # 语音合成（百度 REST API）
+│   │       ├── SpeechRecognitionManager.java # 原生 Android SpeechRecognizer（已弃用，保留参考）
+│   │       └── SpeechRecognitionService.java # 原生语音识别服务（已弃用，保留参考）
 │   ├── res/
 │   │   ├── layout/                     # 页面布局 XML
 │   │   ├── values/                     # 颜色、字符串、主题
@@ -101,6 +106,8 @@ app/
 - Android SDK 34
 - 一台 Android 7.0+ 真机（推荐）或模拟器
 
+> ⚠️ **重要提示**：高德地图 API Key 需要和应用的包名 (`com.example.voicenavigation`) + 调试证书 SHA1 绑定。如果地图显示空白，请在高德开放平台配置你的 SHA1。
+
 ### 运行步骤
 
 1. **克隆项目**
@@ -110,7 +117,11 @@ app/
 
 2. **用 Android Studio 打开**项目根目录，等待 Gradle 同步完成
 
-3. **配置 API Key**
+3. **检查本地 AAR 依赖**
+   
+   百度语音识别 SDK 通过 `app/libs/bdasr.aar` + `flatDir` 本地引入。如果 Gradle 同步时报找不到 `bdasr` 依赖，请确认 AAR 文件存在于 `app/libs/` 目录下。
+
+4. **配置 API Key**
    
    项目已内置测试 Key（位于 `res/values/strings.xml`），可直接运行。如需替换：
    
@@ -119,9 +130,7 @@ app/
    | 高德地图 | [lbs.amap.com](https://lbs.amap.com) | `strings.xml` → `amap_api_key` |
    | 百度语音 | [ai.baidu.com](https://ai.baidu.com) | `strings.xml` → `baidu_speech_*` |
 
-4. **连接手机**（开启 USB 调试），点击 **Run** ▶️
-
-> ⚠️ 高德地图 API Key 需要和应用的包名 (`com.example.voicenavigation`) + 调试证书 SHA1 绑定。如果地图显示空白，请在高德开放平台配置你的 SHA1。
+5. **连接手机**（开启 USB 调试），点击 **Run** ▶️
 
 ---
 
