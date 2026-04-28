@@ -112,7 +112,7 @@ app/
 
 1. **克隆项目**
    ```bash
-   git clone https://github.com/你的用户名/voice-navigation.git
+   git clone https://github.com/weiyu66/voiceNavigation.git
    ```
 
 2. **用 Android Studio 打开**项目根目录，等待 Gradle 同步完成
